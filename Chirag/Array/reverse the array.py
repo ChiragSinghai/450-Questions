@@ -21,6 +21,5 @@ if __name__=='__main__':
     arr=input().split()
     '''do not use both function at the same time otherwise the array will
     remain same due to the memory location'''
-    
     #reverse(arr)
     another_reverse(arr)
