@@ -27,18 +27,15 @@ def BrutualForceApproach(arr,n):
     if arr[0]==0:
         return -1
     jump=1
-    for i in range(1,n):
-        step=arr[i]
-        if step+i==n-1:
-            return jump+1
-        j=i
-        m=arr[j+1]
-        j+=1
-        step-=1
-        while step:
-            m=max(m,arr[j])
-            step-=1
-    return 
+    index=1
+    step=arr[0]
+    while jump<n:
+        m=0
+        for i in range(step):
+            m=max(m,
+            
+        
+        
             
         
         
