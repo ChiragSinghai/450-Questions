@@ -32,7 +32,11 @@ def BrutualForceApproach(arr,n):
     while jump<n:
         m=0
         for i in range(step):
-            m=max(m,
+            m=max(m)
+with open('negative.txt')as file:
+    L=file.readlines()
+    L=[int(x.strip()) for x in L]
+    print(L)
             
         
         
