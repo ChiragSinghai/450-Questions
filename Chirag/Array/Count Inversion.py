@@ -38,10 +38,20 @@ def merge_sort(A,start,end):
         merge_sort(A,mid+1,end)
         merge(A,start,mid,end)
 
+
+def bruteforceApproach(A,n):
+    count=0
+    for i in range(n):
+        j=0
+        while j<n and j>i:
+            if A[i]>A[j]:
+                count+=1
+            j+=1
+    print(count)
 if __name__=='__main__':
     #N=int(input())
     N=5
     #A=list(map(int,input().split()))
     A=[1,2,3,4,5]
     count_inversion(A,N)
-        
+    bruteforceApproach(A,N)
