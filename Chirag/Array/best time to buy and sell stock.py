@@ -1,3 +1,5 @@
+#the code at the official site is implemented wrong
+#
 def fun(prices):
     mi=ma=prices[0]
     maximum=0
