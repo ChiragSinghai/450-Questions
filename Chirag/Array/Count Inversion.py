@@ -15,7 +15,7 @@ def merge(A,start,mid,end):
             i+=1
             
         else:
-            A[k]=A[j]
+            temp[k]=A[j]
             j+=1
             count+=mid-i+1
         k+=1
