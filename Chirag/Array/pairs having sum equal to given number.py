@@ -7,7 +7,9 @@ def bruteforceApproach(A,n,s):
                 count+=1
             j+=1
     print(count)
-
+def optimalSolution(A,n,s):
+    pass
+        
 if __name__=='__main__':
     N=int(input())
     A=list(map(int,input().split()))
