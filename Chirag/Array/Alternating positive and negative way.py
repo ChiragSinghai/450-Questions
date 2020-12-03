@@ -3,7 +3,7 @@ def arrange(A,n):
     for i in range(n):
         if check>=0:
             if (A[i]>=0 and A[check]<0) or (A[i]<0 and A[check]>=0):
-                A=rotate(A,n,i,check)
+                A=right_rotate(A,n,i,check)
                 if i-check >= 2:
                     check+=2
                 else:
@@ -13,7 +13,7 @@ def arrange(A,n):
                 check=i
     return A
         
-def rotate(A,n,i,check):
+def right_rotate(A,n,i,check):
     temp=A[i]
     for j in range(i,check,-1):
         A[j]=A[j-1]
@@ -30,11 +30,30 @@ def quick_sort_partition(A,end):
             A[neg],A[pos]=A[pos],A[neg]
     l=1
     p=neg+1
-    while l<neg and p<end:
+    while l<p:
         A[l],A[p]=A[p],A[l]
         l+=2
         p+=1
     print(A)
+
+#brutual force Approach
+def  brutual_force(A,n):
+    for i in A:
+        neg=[]
+        pos=[]
+        if i < 0:
+            neg.append(i)
+        else:
+            pos.append(i)
+        n_index=p_index=0
+        for i in range(n):
+            if i%2==0:
+                A[i]=neg[n_index]
+                n_index+=1
+            else:
+                A[i]=pos[p_index]
+                p_index+=1
+        print(A)
     
     
         
