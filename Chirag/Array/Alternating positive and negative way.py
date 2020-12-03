@@ -20,6 +20,24 @@ def rotate(A,n,i,check):
     A[check]=temp
     print(A)
     return A
+#Second Approach via quick sort technique
+def quick_sort_partition(A,end):
+    neg=-1
+    pivot=0
+    for pos in range(end):
+        if A[pos]<pivot:
+            neg+=1
+            A[neg],A[pos]=A[pos],A[neg]
+    l=1
+    p=neg+1
+    while l<neg and p<end:
+        A[l],A[p]=A[p],A[l]
+        l+=2
+        p+=1
+    print(A)
+    
+    
+        
 
 
 if __name__=='__main__':
@@ -27,4 +45,6 @@ if __name__=='__main__':
     A=arrange(A,len(A))
     print(A)
     print(arrange([-5, -2, 5, 2, 4, 7, 1, 8, 0, -8],10))
+    quick_sort_partition(A,len(A))
+
       

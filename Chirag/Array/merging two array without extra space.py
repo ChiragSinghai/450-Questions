@@ -9,16 +9,17 @@ def merge(A,B,n,m):
         print(gap)
         i=0
         while i + gap < n:
+            
             if (A[i] > A[i + gap]):
                 A[i], A[i + gap] = A[i + gap], A[i]
-            i += 1
-
+            i += 1    
         j = gap - n if gap > n else 0
         while i < n and j < m:
             if (A[i] > B[j]):
                 A[i], B[j] = B[j], A[i]
             i += 1
             j += 1
+            
         if (j < m):
             j = 0
             while j + gap < m :
@@ -34,6 +35,6 @@ if __name__=='__main__':
     merge(A,B,N,M)
     for i in A:
         print(i)
-    for i in B:
+    for i in  B:
         print(i)
     
