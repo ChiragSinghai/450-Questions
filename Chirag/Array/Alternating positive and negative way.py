@@ -38,32 +38,44 @@ def quick_sort_partition(A,end):
 
 #brutual force Approach
 def  brutual_force(A,n):
+    neg=[]
+    pos=[]
     for i in A:
-        neg=[]
-        pos=[]
+        
         if i < 0:
             neg.append(i)
         else:
             pos.append(i)
-        n_index=p_index=0
-        for i in range(n):
-            if i%2==0:
-                A[i]=neg[n_index]
-                n_index+=1
-            else:
-                A[i]=pos[p_index]
-                p_index+=1
-        print(A)
-    
+    i=j=k=0
+    m,n=len(pos),len(neg)
+    print(neg,pos)   
+    while i<m and j<n:
+        A[k]=neg[j]
+        k+=1
+        A[k]=pos[i]
+        k+=1
+        i+=1
+        j+=1
+    while i<m:
+        A[k]=pos[i]
+        k+=1
+        i+=1
+    while j<n:
+        A[k]=neg[j]
+        k+=1
+        j+=1
+    print(A)
+            
+        
     
         
 
 
 if __name__=='__main__':
     A=[-5,4,3,2,-1,6,-7]
-    A=arrange(A,len(A))
-    print(A)
-    print(arrange([-5, -2, 5, 2, 4, 7, 1, 8, 0, -8],10))
-    quick_sort_partition(A,len(A))
+    #A=arrange(A,len(A))
+    brutual_force(A,len(A))
+    #print(arrange([-5, -2, 5, 2, 4, 7, 1, 8, 0, -8],10))
+    #quick_sort_partition(A,len(A))
 
       
