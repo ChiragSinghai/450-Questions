@@ -9,5 +9,7 @@ def fun(A,n,k):
     for i in d:
         if d[i]>=m:
             print(i)
+if __name__=='__main__':
+    fun([1,2,2,3,4,4,4,4],8,4)
 
         
