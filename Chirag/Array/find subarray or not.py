@@ -5,7 +5,7 @@ def find(A,B,m,n):
             d[i]+=1
         else:
             d[i]=1
-    print(d)
+    #print(d)
     for i in A:
         if i in d:
             d[i]-=1
