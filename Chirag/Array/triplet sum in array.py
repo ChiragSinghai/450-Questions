@@ -9,14 +9,14 @@ def findtriplet(A,s):
             if m==s:
                 return True
             elif m<s:
-                l-=1
+                l+=1
             else:
-                r+=1
+                r-=1
     return False
 
     
 if __name__=='__main__':
-    A=input().split()
-    s=int(input())
+    A=[1, 4, 45, 6, 10, 8]
+    s=22
     print('Yes' if findtriplet(A,s) else 'No')
     
