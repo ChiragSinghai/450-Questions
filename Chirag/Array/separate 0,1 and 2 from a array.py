@@ -9,7 +9,7 @@ def sorting(A):
             start+=1
             mid+=1
         elif A[mid]==1:
-            A[mid],A[mid]=A[mid],A[mid]
+            #A[mid],A[mid]=A[mid],A[mid]
             mid+=1
         else:
             A[end],A[mid]=A[mid],A[end]
