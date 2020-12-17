@@ -12,8 +12,10 @@ def solution(A):
                 m=j
         if A[m]<A[i]:
             A[i],A[m]=A[m],A[i]
-	if n%2==0:
-	    return (A[index]+A[index-1])//2
-	else:
-            return A[index]
+    if n%2==0:
+        return (A[index]+A[index-1])//2
+    else:
+        return A[index]
         
+if __name__=='__main__':
+    print(solution([4,5,6,7,2,3]))
