@@ -25,8 +25,32 @@ class Solution(object):
             print(c,i,mid)
         return False
                 
-
+class Solution1():
+    def searchMatrix(self, matrix, target):
+        r=len(matrix)
+        if r==0:
+            return False
+        c=len(matrix[0])
+        if r==1 and c==0:
+            return False
+        m=r*c
+        m-=1
+        i=0
+        while i<=m:
+            mid=(m+i)//2
+            row=mid//c
+            column=mid%c
+            #print(mid)
+            if matrix[row][column]==target:
+                return True
+            elif matrix[row][column]<target:
+                i=mid+1
+            else:
+                m=mid-1
+            #print(c,i,mid)
+        return False
+                
 matrix=[[1,3,5,7],[10,11,16,20],[23,30,34,50]]
-target=143
-obj=Solution()
+target=300
+obj=Solution1()
 print(obj.searchMatrix(matrix,target))
