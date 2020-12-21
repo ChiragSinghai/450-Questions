@@ -38,19 +38,23 @@ class Solution:
     
     def rowWithMax1s1(self,arr, n, m):
         row=0
-        ma=self.binary(arr[0],m-1)
-        #print(ma)
+        ma=self.binary1(arr[0],m-1)
         for i in range(1,n):
+            print(ma)    
             if arr[i][ma]==1 and ma!=-1:
-                index=self.binary(arr[i],ma)
+                index=self.binary1(arr[i],ma)
+                print(arr[i][ma],index)
                 if index!=-1 and index<ma:
                     ma=index
                     row=i
             if ma==-1:
-                ma=self.binary(arr[i],m-1)
-        print(row)
+                ma=self.binary1(arr[i],m-1)
+                row=i
+        if ma==-1:
+            return -1
+        return row
 if __name__=='__main__':
-    arr=[[0,1,1,1],
+    arr=[[0,0,0,0],
          [0,0,1,1],
          [0,1,1,1],
          [0,0,0,0],
@@ -59,7 +63,8 @@ if __name__=='__main__':
     m=4
     obj=Solution()
     print(obj.rowWithMax1s(arr,n,m))
-    print(obj.binary(arr[4],3))
+    print(obj.rowWithMax1s1(arr,n,m))
+    #print(obj.binary(arr[4],3))
 
 
     
