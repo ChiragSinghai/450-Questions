@@ -43,7 +43,7 @@ class Solution:
             if ma==-1:
                 return row
                 
-            if arr[i][ma]==1 and ma!=-1:
+            if arr[i][ma]==1:
                 index=self.binary1(arr[i],ma)
                 #print(arr[i][ma],index)
                 if index<ma:
