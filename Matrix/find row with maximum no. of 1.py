@@ -40,25 +40,24 @@ class Solution:
         row=0
         ma=self.binary1(arr[0],m-1)
         for i in range(1,n):
-            print(ma)    
+            if ma==-1:
+                return row
+                
             if arr[i][ma]==1 and ma!=-1:
                 index=self.binary1(arr[i],ma)
-                print(arr[i][ma],index)
-                if index!=-1 and index<ma:
+                #print(arr[i][ma],index)
+                if index<ma:
                     ma=index
                     row=i
-            if ma==-1:
-                ma=self.binary1(arr[i],m-1)
-                row=i
-        if ma==-1:
-            return -1
+            
+
         return row
 if __name__=='__main__':
     arr=[[0,0,0,0],
          [0,0,1,1],
+         [0,0,1,1],
          [0,1,1,1],
-         [0,0,0,0],
-         [1,1,1,1]]
+         [0,0,0,1]]
     n=5
     m=4
     obj=Solution()
