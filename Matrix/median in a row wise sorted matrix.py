@@ -10,17 +10,28 @@ def solution(M,r,c):
                 ma=M[i][c-1]
 
     target=(r*c+1)//2
-    var=0
-    while mi<mx:
-        mid=(ma-mi)//2
+    
+    while mi<ma:
+        mid=mi+(ma-mi)//2
+        var=0
+        print('mid=',mid)
         for i in range(r):
             j=bisect(M[i],mid)
+            print(j)
             var=var+j
+            
         if var<target:
             mi=mid+1
         else:
-            mx=mid
+            ma=mid
     print(mi)
+
+if __name__=='__main__':
+    M=[[5,6,8],
+       [2,3,4],
+       [0,1,7]]
+    r,c=3,3
+    solution(M,r,c)
 
 
 
