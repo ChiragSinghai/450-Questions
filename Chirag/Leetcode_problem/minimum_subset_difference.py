@@ -13,13 +13,21 @@ def findmin(A,n,S):
                 dp[i][j] = dp[i-1][j]
             else:
                 dp[i][j]=dp[i-1][j] or dp[i-1][j-A[i-1]]
-    printmat(dp)
+    index=S//2
+    m=S
+    
+    for i in range(index+1):
+        if dp[n][i] and m>abs(i-(S-i)):
+            m=abs(i-(S-i))
+
+    print(m)
+        
     
     
     
 
 if __name__=='__main__':
-    A=[4,1,1,5]
+    A=[4,1,5]
     n=len(A)
     S=sum(A)
     findmin(A,n,S)
