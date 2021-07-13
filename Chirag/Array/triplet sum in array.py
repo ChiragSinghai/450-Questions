@@ -1,6 +1,7 @@
 def findtriplet(A,s):
     n=len(A)
     A.sort()
+    print(A)
     for i in range(0,n-2):
         l=i+1
         r=n-1
