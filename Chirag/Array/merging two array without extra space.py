@@ -6,7 +6,7 @@ def merge(A,B,n,m):
     s=n+m
     gap=get_gap(s)
     while gap>0:
-        print(gap)
+        #print(gap)
         i=0
         while i + gap < n:
             
@@ -14,6 +14,7 @@ def merge(A,B,n,m):
                 A[i], A[i + gap] = A[i + gap], A[i]
             i += 1    
         j = gap - n if gap > n else 0
+        print(j)
         while i < n and j < m:
             if (A[i] > B[j]):
                 A[i], B[j] = B[j], A[i]
