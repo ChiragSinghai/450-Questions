@@ -40,23 +40,27 @@ def find(hist):
 
 def findarea(A):
     maxarea = 0
-    stack=[]
+    hstack=[]
+    pstack=[]
+    #A.append(0)
     n=len(A)
     for i in range(n):
         lastwidth=n*n+1
-        while stack and A[stack[-1]]>A[i]:
-            lastwidth = stack[-1]
-            currarea = (i-stack.pop())*A[lastwidth]
+        while hstack and hstack[-1]>A[i]:
+            lastwidth = pstack[-1]
+            currarea = (i-pstack.pop())*hstack.pop()
             maxarea=max(maxarea,currarea)
             
-        if not stack or A[stack[-1]]<A[i]:
-            stack.append(min(lastwidth,i))
-        print(stack,maxarea)
-    while stack:
-        currarea = (n-1-stack[-1])*A[stack[-1]]
-        stack.pop()
+        if not hstack or hstack[-1]<A[i]:
+            hstack.append(A[i])
+            pstack.append(min(lastwidth,i))
+        print(hstack,pstack,maxarea)
+    while pstack:
+        currarea = (n-pstack.pop())*hstack.pop()
         maxarea=max(currarea,maxarea)
     print(maxarea)
+    
 if __name__=='__main__':
-    A = [2,1,5,6,2,3]
+    A=[2,2,1,3,4,1,2]
+    #A = [2,1,5,6,2,3]
     findarea(A)
