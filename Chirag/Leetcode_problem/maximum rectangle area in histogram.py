@@ -37,7 +37,9 @@ def find(hist):
     for i in range(n):
         max_area = max(max_area,(right[i]-left[i]+1)*hist[i])
     print(max_area)
+    print(left,right)
 
+    
 def findarea(A):
     maxarea = 0
     hstack=[]
@@ -63,4 +65,4 @@ def findarea(A):
 if __name__=='__main__':
     A=[2,2,1,3,4,1,2]
     #A = [2,1,5,6,2,3]
-    findarea(A)
+    find(A)
