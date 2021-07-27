@@ -21,7 +21,10 @@ def getmax(mat):
     for i in range(n):
         for j in range(m):
             if i != 0:
-                pass
+                mat[i][j]+=mat[i-1][j]
+
+        area=max(area,maxArea(mat[i],m))
+    return area
                 
         
         
@@ -32,4 +35,9 @@ if __name__=='__main__':
        [1,0,1,1,1],
        [1,1,1,1,1],
        [1,0,0,1,0]]
-    print(maxArea(A[2]))
+    print(getmax(A))
+
+
+
+
+    
