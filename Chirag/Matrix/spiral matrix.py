@@ -11,6 +11,8 @@ def spiral(L):
         for i in range(row,r):
             print(L[i][c-1],end=' ')
         c-=1
+        if not(row<r and column<c):
+            break
         if row<r:
             for i in range(c-1,column-1,-1):
                 print(L[r-1][i],end=' ')
