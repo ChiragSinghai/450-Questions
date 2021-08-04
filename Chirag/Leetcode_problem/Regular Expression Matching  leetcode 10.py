@@ -35,10 +35,25 @@ def isMatch1( s, p) :
         dp[i][j]=False
         return dp[i][j]
     
-    
     return dfs(0,0) 
+def printmat(dp):
+    for row in dp:
+        print(row)
+def isMatch2(s, p):
+        dp=[[False for _ in range(len(p)+1)]for _ in range(len(s)+1)]
+        dp[-1][-1]=True
+        printmat(dp)
+        for i in range(len(s),-1,-1):
+            for j in range(len(p)-1,-1,-1):
+                match= i<len(s) and (s[i]==p[j] or p[j]=='.')
+                if j+1<len(p) and p[j+1]=='*':
+                    dp[i][j]=dp[i][j+2] or (match and dp[i+1][j])
+                else:
+                    dp[i][j]=match and dp[i+1][j+1]
+        return dp[0][0]
+                    
 a="aab"
 b="c*a*b"
-print(isMatch1(a,b))
+print(isMatch2(a,b))
 
 
