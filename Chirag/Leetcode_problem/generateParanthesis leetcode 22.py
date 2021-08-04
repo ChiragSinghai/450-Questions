@@ -5,7 +5,8 @@ def generateParenthesis( n):
             if x==y:
                 result.add(curstr)
             return
-    
+        if x>n or y>n:
+            return
         if y<x and y<=n:
             dfs(curstr+")",x,y+1)
             if x<=n:
