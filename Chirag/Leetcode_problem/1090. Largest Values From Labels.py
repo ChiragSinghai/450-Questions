@@ -21,3 +21,24 @@ class Solution:
             n+=1
             #print(d)
         return result
+
+##another approach using dictionary
+    
+class Solution:
+    def largestValsFromLabels(self, values: List[int], labels: List[int], num_wanted: int, use_limit: int) -> int:
+        D={}
+        S=[]
+        for i,x in enumerate(labels):
+            if x in D:
+                D[x].append(values[i])
+            else:
+                D[x]=[values[i]]
+        for l,vals in D.items():
+            vals.sort(reverse=True)
+            if len(vals)<use_limit:
+                S.extend(vals[:])
+            else:
+                S.extend(vals[:use_limit])
+            #print(S)
+        S.sort(reverse=True)
+        return sum(S[:num_wanted])
