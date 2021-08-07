@@ -16,4 +16,7 @@ def concatenatedBinary1(n) :
         ans|=i
         ans%=modulo
     return ans
+def concatenatedBinary2(n):
+    mem = list(accumulate(range(100001), lambda s, i: (s << i.bit_length() | i) % 1000000007))
+    return mem[n]
 print(concatenatedBinary1(45))
