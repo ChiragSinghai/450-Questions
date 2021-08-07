@@ -1,7 +1,19 @@
+import math
 def concatenatedBinary(n) :
     modulo=10**9+7
     s=''
     for i in range(1,n+1):
         s+=bin(i)[2:]
     return int(s,2)%modulo
-print(concatenatedBinary(45))
+
+def concatenatedBinary1(n) :
+    modulo=10**9+7
+    ans = 1 
+    #calculate bits
+    for i in range(2,n+1):
+        num=int(math.log(i)/math.log(2)+1)
+        ans=ans<<num
+        ans|=i
+        ans%=modulo
+    return ans
+print(concatenatedBinary1(45))
