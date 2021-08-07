@@ -10,4 +10,16 @@ def findRepeatedDnaSequences(s) :
         if D[k]<=1:
             D.pop(k)
     return list(D.keys())
+##efficient approach
+def findRepeatedDnaSequences1(s) :
+    current=set()
+    repeated=set()
+    for i in range(len(s)-9):
+        curr=s[i:i+10]
+        if curr in current:
+            repeated.add(curr)
+        current.add(curr)
+    return [*repeated]
+
+print(findRepeatedDnaSequences1("AAAAAAAAAAA"))
 print(findRepeatedDnaSequences("AAAAAAAAAAA"))
