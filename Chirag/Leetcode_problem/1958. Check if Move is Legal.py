@@ -12,7 +12,27 @@ def checkMove(board, r, c, color):
             size += 1
     return False
 
-
+def checkMove1(board, rMove, cMove, color):
+        directions=[[1,0],[-1,0],
+                    [0,1],[0,-1],
+                    [-1,-1],[1,1],
+                    [-1,1],[1,-1]]
+        board[rMove][cMove]=color
+        def check(i,j,c,d):
+            dr,dc=d
+            row,col=i+dr,j+dc
+            length=1
+            while (0<=row<8) and 0<=col<8:
+                length+=1
+                if board[row][col]=='.':return False
+                elif board[row][col]==c:return length>=3
+                row+=dr
+                col+=dc
+            return False
+        for d in directions:
+            if check(rMove,cMove,color,d):
+                return True
+        return False
 board = [[".",".",".",".",".",".",".","."],
          [".","B",".",".","W",".",".","."],
          [".",".","W",".",".",".",".","."],
