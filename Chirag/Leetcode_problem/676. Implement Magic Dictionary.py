@@ -36,3 +36,43 @@ class MagicDictionary:
 # obj = MagicDictionary()
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
+
+
+
+#Simple and Easy approach
+'''
+class MagicDictionary:
+    def __init__(self):
+        self.words=[]
+
+    def buildDict(self, dictionary: List[str]) -> None:
+        self.words=dictionary
+        
+    def search(self, searchWord: str) -> bool:
+        for word in self.words:
+            magic = self.isMagic(searchWord,word)
+            if magic:
+                return True
+        return False
+    def isMagic(self,searchWord,word):
+        if len(searchWord) != len(word):
+            return False
+        nonmatching = 0
+        for i in range(len(searchWord)):
+            if searchWord[i] != word[i]:
+                nonmatching += 1
+            if nonmatching > 1:
+			    # more than one mismatch, not magic
+                return False
+        if nonmatching:
+            assert nonmatching == 1
+            return True
+        else:
+            return False
+# Your MagicDictionary object will be instantiated and called as such:
+# obj = MagicDictionary()
+# obj.buildDict(dictionary)
+# param_2 = obj.search(searchWord)
+'''
+
+
