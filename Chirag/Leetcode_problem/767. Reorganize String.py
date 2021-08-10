@@ -1,5 +1,5 @@
 class Solution:
-    def reorganizeString(self,s):
+    def reorganizeString(self, s: str) -> str:
         D={}
         for i in s:
             if i not in D:
