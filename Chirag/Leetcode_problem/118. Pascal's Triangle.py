@@ -10,7 +10,7 @@ def generate(numRows):
                 temp[j]=temp[j]+temp[j+1]
             matrix.append(temp[:i+1])
         return matrix
-
+#fast method
 def generate1(numRows):
         if numRows==1:
             return [[1]]
@@ -21,4 +21,14 @@ def generate1(numRows):
                 temp.append(matrix[i-1][j]+matrix[i-1][j+1])
             matrix.append([1]+temp+[1])
         return matrix
-printmat(generate1(5))
+
+def generate2(numRows):
+        dp = [[1] * i for i in range(1,numRows+1)]
+        
+        for i in range(numRows):
+            for j in range(i+1):
+                if not(j == 0 or j == i):
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
+                    
+        return dp
+printmat(generate2(5))
