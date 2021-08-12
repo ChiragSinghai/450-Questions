@@ -26,4 +26,29 @@ def minRemoveToMakeValid(s):
         op_count-=1
         counter+=1
     return res
+def minRemoveToMakeValid1(s):
+    op_count=0
+    total=0
+    for i in range(len(s)):
+        if s[i]=='(':
+            op_count+=1
+            total+=1
+        elif s[i]==')':
+            if not op_count:
+                s=s[:i]+'#'+s[i+1:]
+            else:
+                op_count-=1
+    opening=total-op_count
+    res=''
+    for i in range(len(s)):
+        if s[i]=='#':
+            continue
+        elif s[i]=='(':
+            if opening:
+                opening-=1
+                res+=s[i]
+        else:
+            res+=s[i]
+    return res
 print(minRemoveToMakeValid('abcd(((efg)h)))'))
+print(minRemoveToMakeValid1('abcd(((efg)h)))'))
