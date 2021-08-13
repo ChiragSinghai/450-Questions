@@ -33,5 +33,22 @@ def makeGood(s):
             l+=1
         #print(l,List)
     return ''.join(List)
-print(makeGood("WpubBUPwG"))
+def makeGood1(s):
+    s=list(s)   
+    ans=[s.pop()]
+    
+    while s:
+        a= s.pop()
+        
+        if len(ans)>0:
+            
+            if (a).lower()==ans[-1].lower() and a!=ans[-1]:
+                ans.pop()
+            else:
+                ans.append(a)
+        else:
+            ans.append(a)
+    
+    return ''.join(ans[::-1])
+print(makeGood1("WpubBUPwG"))
         
