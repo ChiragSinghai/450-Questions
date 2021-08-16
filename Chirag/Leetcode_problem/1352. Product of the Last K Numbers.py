@@ -57,3 +57,21 @@ class ProductOfNumbers:
         if k==len(self.nums):
             return self.product[-1]
         return self.product[-1]//self.product[-k-1]
+
+
+#new solution
+class ProductOfNumbers:
+
+    def __init__(self):
+        self.lst = []
+
+    def add(self, num: int) -> None:
+        if num:
+            if num != 1:
+                self.lst = [n * num for n in self.lst]
+            self.lst.append(num)
+        else:
+            self.lst = []
+
+    def getProduct(self, k: int) -> int:
+        return self.lst[-k] if k <= len(self.lst) else 0
