@@ -27,6 +27,24 @@ def searchRange(nums,target):
     while mid<r and nums[mid+1]==target:
         mid+=1
     return [l,mid]
+def searchRange1(nums,target):
+    def search(nums, target, l, is_left=True):
+        r = len(nums)-1
+        while l <= r:
+            mid = (l + r)//2
+            if (is_left and nums[mid] >= target) or (not is_left and nums[mid] > target):
+                r = mid - 1
+            else:
+                l = mid + 1
+                
+        return l if is_left else r
+    
+    li = search(nums, target, 0)
+    ri = search(nums, target, li, is_left=False)
+    if ri < li:
+        return [-1, -1]
+            
+    return [li, ri]
 
 
-print(searchRange([1,1],1))
+print(searchRange1([1,1],1))
