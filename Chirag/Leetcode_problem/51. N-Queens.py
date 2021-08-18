@@ -46,4 +46,34 @@ def solveNQueens(n):
     backtrack(0)
     return ans
 
-print(solveNQueens(5))
+def solveNQueens1(n):
+    
+    xysum, yxdiff, boardset = set(), set(), set()
+    board, ans = [], []
+            
+    def dfs():
+        
+        nonlocal board, ans
+        
+        if len(board) == n:
+            ans += [board[::][::]]
+            return
+        
+        r = len(board)
+        left = ''
+        for c in range(n):
+            if c not in boardset and r+c not in xysum and c-r not in yxdiff:
+                xysum.add(r+c)
+                yxdiff.add(c-r)
+                boardset.add(c)
+                board += [left + 'Q'+'.'*(n-len(left)-1)]
+                dfs()
+                board.pop()
+                xysum.remove(r+c)
+                yxdiff.remove(c-r)
+                boardset.remove(c)
+            left += '.'
+    dfs()
+    return ans
+
+print(solveNQueens1(5))
