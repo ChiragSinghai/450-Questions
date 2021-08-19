@@ -1,4 +1,27 @@
 def totalNQueens(n):
+    count=0
+        ldiag=set()
+        rdiag=set()
+        col=set()
+        def back(r):
+            nonlocal count
+            if r==n:
+                count+=1
+            for c in range(n):
+                if c in col or r-c in ldiag or r+c in rdiag:
+                    continue
+                else:
+                    ldiag.add(r-c)
+                    rdiag.add(r+c)
+                    col.add(c)
+                    back(r+1)
+                    ldiag.remove(r-c)
+                    rdiag.remove(r+c)
+                    col.remove(c)
+        back(0)
+        return count
+
+    '''
     if n==1:
         return 1
 
@@ -9,6 +32,8 @@ def totalNQueens(n):
     if n==7:return 40
     if n==8: return 92
     if n==9:return 352
+    '''
+    
     '''
     directions=[[-1,-1],
                  [1,1],
