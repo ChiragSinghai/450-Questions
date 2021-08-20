@@ -11,4 +11,20 @@ def isOneBitCharacter(bits):
         else:
             prev=next
     return False
-print(isOneBitCharacter([1,1,1,1,0,]))
+def isOneBitCharacter1(bits):
+    if bits==[0]:
+        return True
+    elif bits==[1]:
+        return False
+    if bits[-1]==0 and bits[-2]==0:
+        return True
+    count=0
+    if bits[-1]==0 and bits[-2]==1:
+        for i in bits[-2::-1]:
+            if i!=1:
+                break
+            count+=1
+        if not count & 1:
+            return True
+    return False
+print(isOneBitCharacter1([1,1,1,1,0,]))
