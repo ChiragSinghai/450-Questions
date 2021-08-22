@@ -48,6 +48,7 @@ def printLCS1(dp,s1,m,n,res):
     leftValue=dp[m][n-1]
     diValue=dp[m-1][n-1]
     if upValue==leftValue==diValue and dp[m][n]!=diValue:
+        
         printLCS1(dp,s1,m-1,n-1,res+s1[m-1])
     else:
         if leftValue==upValue:
