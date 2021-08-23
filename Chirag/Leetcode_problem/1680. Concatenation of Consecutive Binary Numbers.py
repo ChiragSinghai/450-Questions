@@ -12,11 +12,11 @@ def concatenatedBinary1(n) :
     #calculate bits
     for i in range(2,n+1):
         num=int(math.log(i)/math.log(2)+1)
+        print(num)
         ans=ans<<num
+        print(bin(ans))
         ans|=i
         ans%=modulo
     return ans
-def concatenatedBinary2(n):
-    mem = list(accumulate(range(100001), lambda s, i: (s << i.bit_length() | i) % 1000000007))
-    return mem[n]
-print(concatenatedBinary1(45))
+
+print(concatenatedBinary1(2))
